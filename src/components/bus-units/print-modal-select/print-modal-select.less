@@ -1,0 +1,82 @@
+ .print-modal-select {
+     li {
+         list-style: none;
+     }
+     height: 100%;
+     .ivu-layout {
+         height: 90%;
+         background: #fff;
+     }
+     .ivu-layout-sider,
+     .ivu-layout-content {
+         background: none;
+     }
+     .flow-config-left {
+         margin: 16px;
+         padding: 4px;
+         border: 1px #d9d9d9 solid;
+         border-radius: 3px;
+         background: #fff;
+         .__rail-is-vertical {
+             left: 0px !important;
+             z-index: 999 !important;
+         }
+         .__rail-is-horizontal {
+             display: none;
+         }
+     }
+     .flow-bill-modal {
+         margin: 16px 16px 16px 0px;
+     }
+     .actions {
+         position: absolute;
+         left: 10px;
+         top: 5px;
+     }
+     .ivu-menu-vertical .ivu-menu-item,
+     .ivu-menu-vertical .ivu-menu-submenu-title {
+         padding: 8px 8px;
+     }
+     .ivu-menu-item .actions {
+         display: none;
+         position: absolute;
+         right: 10px;
+         top: 4px;
+         .ivu-icon {
+             margin-right: 8px;
+         }
+     }
+     .ivu-menu-submenu-title .actions {
+         position: absolute;
+         right: 10px;
+         top: 0px;
+         .ivu-btn-text {
+             color: #2b85e4;
+         }
+     }
+     .ivu-menu-vertical .ivu-menu-item:hover,
+     .ivu-menu-vertical .ivu-menu-submenu-title:hover,
+     .ivu-menu-light.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu) {
+         .actions {
+             display: inline-block;
+         }
+     }
+     .ivu-menu-vertical .ivu-menu-submenu-title-icon {
+         float: left;
+         margin-top: -4px;
+     }
+     .footer-btn {
+         width: 100%;
+         left: 100px;
+         padding-top: 10px;
+         padding-right: 20px;
+         .submit-btn {
+             float: right;
+             margin-left: 20px
+         }
+     }
+ }
+
+ .modal-input {
+     padding: 10px 0 10px 50px;
+ }

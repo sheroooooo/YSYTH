@@ -1,0 +1,39 @@
+.log-card {
+    overflow-y: scroll;
+    max-height: 355px;
+    .card-item {
+        padding: 5px;
+        span {
+            display: inline-block;
+        }
+        .the-auditor {
+            margin-right: 16px;
+        }
+        .adate-time,
+        .remark {
+            color: #888;
+        }
+        .remark {
+            word-wrap: break-word;
+            word-break: break-all; // overflow: hidden;
+        }
+    }
+    .recno {
+        border-radius: 50%;
+        background-color: rgb(43, 133, 228);
+        color: rgb(240, 245, 255);
+        height: 24px;
+        width: 24px;
+        text-align: center;
+        font-size: 14px;
+        margin-right: 10px;
+        padding-top: 3px;
+    }
+    .ivu-card-body .__vuescroll .__panel .__view {
+        height: auto
+    }
+}
+
+.ivu-card-body {
+    padding: 0px;
+}

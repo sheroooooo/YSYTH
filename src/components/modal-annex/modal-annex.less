@@ -1,0 +1,111 @@
+.modal-annex {
+  position: relative;
+  /* 附件按钮栏 */
+  .fj-operate {
+    height: 30px;
+  }
+  /* 附件数样式 */
+  .fj-text {
+    position: absolute;
+    left: 24px;
+  }
+  /* 附件上传按钮样式 */
+  .fj-btn-upload {
+    position: absolute;
+    right: 24px;
+    top: 59px;
+  }
+  /* 附件展示框样式 */
+  .fj-boder {
+    width: 891px;
+    height: 463px;
+    border: 1px solid rgba(217, 217, 217, 1);
+    padding:0px 15px 15px 15px;
+    overflow-y: auto;
+  }
+  /* 附件返回按钮样式 */
+  .fj-btn-back {
+    position: absolute;
+    left: 2px;
+    top: 59px;
+  }
+  /* ivew按钮样式去边框 */
+  .ivu-btn {
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  /* 新增附件样式 */
+  .fj-btn-add {
+    width: 198px;
+    height: 206px;
+    border: 1px solid rgba(217, 217, 217, 1);
+    margin-top: 15px;
+    margin-left: 8px;
+    line-height: 198px;
+    text-align: center;
+    color: #3385ff;
+  }
+  /* 附件预览样式 */
+  .fj-view-div {
+    width: 198px;
+    height: 206px;
+    border: 1px solid rgba(217, 217, 217, 1);
+    margin-top: 15px;
+    margin-left: 8px;
+    position: relative;
+    &:hover {
+      background: #ECF7FD;
+    }
+  }
+  /* 附件预中图片样式 */
+  .fj-view-img {
+    width: 92%;
+    height: 60%;
+    margin: 8px;
+  }
+  /* 附件预中Logo样式 */
+  .fj-view-logo {
+    margin: 8px 8px 8px 45px;
+  }
+  .fj-view-pick {
+    color: #4686ff;
+    font-size: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  /* 附件预中附件名称样式 */
+  .fj-view-name {
+    width: 182px;
+    height: 44px;
+    font-size: x-small;
+    margin-left: 8px;
+    margin-right: 8px;
+    line-height: unset;
+    overflow: hidden;
+    // 溢出显示出省略号
+    text-overflow: ellipsis;
+    // 作为弹性伸缩盒子模型显示
+    display: -webkit-box;
+    // 设置伸缩盒子的子元素排列方式--从上到下垂直排列
+    -webkit-box-orient: vertical;
+    // 显示的行
+    -webkit-line-clamp: 2;
+  }
+  /* 附件预中图片按钮样式 */
+  .fj-view-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 2px;
+  }
+  /* 附件预中底部工具条样式 */
+  .fj-footer {
+    width: 891px;
+    height: 52px;
+    border-left: 1px solid rgba(217, 217, 217, 1);
+    border-right: 1px solid rgba(217, 217, 217, 1);
+    border-bottom: 1px solid rgba(217, 217, 217, 1);
+    text-align: end;
+  }
+}

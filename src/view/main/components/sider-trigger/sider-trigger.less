@@ -1,0 +1,23 @@
+.trans {
+    transition: transform 0.2s ease;
+}
+
+@size: 30px;
+.sider-trigger-a {
+    position: absolute;
+    left: 5px;
+    top: 13px;
+    width: @size;
+    height: @size;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    i {
+        .trans;
+        vertical-align: top;
+    }
+    &.collapsed i {
+        transform: rotateZ(90deg);
+        .trans;
+    }
+}

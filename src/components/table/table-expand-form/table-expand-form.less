@@ -1,0 +1,47 @@
+.table-expand-form {
+    .ivu-table-cell {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+    }
+    .ivu-table-fixed-right .table-toolbar-cell{
+      border-left: 1px #ccc solid !important;
+      .ivu-table-cell{
+        display: block !important;
+      }
+    }
+    .table-expand-form-panel {
+        position: relative;
+        padding: 0 48px 0 24px;
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+        .rec-no {
+            position: absolute;
+            height: 24px;
+            min-width: 24px;
+            text-align: center;
+            line-height: 24px;
+            background: #57a3f3;
+            color: #fff;
+            top: 0px;
+            left: 0px;
+            border-radius: 4px;
+        }
+        .actions {
+            position: absolute;
+            display: none;
+            width: 24px;
+            right: 0px;
+            top: 0px;
+            .ivu-icon {
+                margin-bottom: 8px;
+            }
+        }
+        &:hover {
+            .actions {
+                display: block;
+            }
+        }
+    }
+}

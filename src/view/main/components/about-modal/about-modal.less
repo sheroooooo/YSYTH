@@ -1,0 +1,66 @@
+.about-modal {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  &-left {
+    position: relative;
+    height: 100%;
+    background:-moz-linear-gradient(left,#0BB5E1,#22E5AA);/*火狐*/
+    background:-webkit-gradient(linear, 0% 0%, 100% 100%,from(#0BB5E1), to(#22E5AA));/*谷歌*/
+    &-head {
+      text-align: center;
+      height: 120px;
+      padding-top: 40px;
+      &-logo {
+        width: 240px;
+        height: 40px;
+      }
+      div {
+        font-size: 20px;
+        color: #ffffff;
+      }
+    }
+    &-img {
+      width: 200px;
+      height: 197px;
+      position: absolute;
+      right: 49px;
+      bottom: 89px;
+    }
+    &-form {
+      padding-left: 30px;
+      color: #ffffff;
+      .ivu-form-item-label {
+        color: #ffffff !important;
+      }
+    }
+  }
+  &-right {
+    position: relative;
+    height: 100%;
+    padding: 60px 30px;
+    &-table {
+      height: 100%;
+      .vxe-table {
+        border: 0;
+      }
+      .vxe-table.t--border.scroll--y .vxe-body--column:last-child, .vxe-table.t--border.scroll--y .vxe-footer--column:last-child, .vxe-table.t--border.scroll--y .vxe-header--column:last-child, .vxe-table.t--border .vxe-body--column, .vxe-table.t--border .vxe-footer--column, .vxe-table.t--border .vxe-header--column {
+        border: 0;
+      }
+      .vxe-table .vxe-table--footer-wrapper, .vxe-table .vxe-table--header-wrapper {
+        border: 0;
+        background-color: #ffffff;
+      }
+      .vxe-table:after, .vxe-table:before {
+        height: 0;
+      }
+    }
+    &-img {
+      position: absolute;
+      right: 15px;
+      bottom: 10px;
+      width: 73px;
+      height: 24px;
+    }
+  }
+}

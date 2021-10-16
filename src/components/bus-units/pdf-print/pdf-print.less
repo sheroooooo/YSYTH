@@ -1,0 +1,26 @@
+.pdf-print {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    &-browser {
+        border: 0px;
+        width: 100%;
+    }
+    &-mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 100;
+        background-color: rgba(0, 0, 0, .2);
+    }
+    &-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 101;
+    }
+}

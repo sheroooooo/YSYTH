@@ -1,0 +1,68 @@
+.table-expand-form {
+    .ivu-table-fixed-right .table-toolbar-cell .ivu-table-cell {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+    }
+    .ivu-table-cell {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+    }
+    margin-bottom: 30px;
+    .ivu-table-fixed-right {
+        z-index: 0;
+    }
+    .ivu-row {
+        z-index: 9
+    }
+    .table-expand-form-active {
+        position: absolute;
+        top: 11px;
+        right: 16px;
+        .btn {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    }
+    .table-expand-form-panel {
+        position: relative;
+        padding: 0 48px 0 24px;
+        .rec-no {
+            position: absolute;
+            height: 24px;
+            min-width: 24px;
+            text-align: center;
+            line-height: 24px;
+            background: #57a3f3;
+            color: #fff;
+            top: 0px;
+            left: 0px;
+            border-radius: 4px;
+        }
+        .actions {
+            text-align: right;
+            z-index: 50;
+            .ivu-icon {
+                margin-bottom: 8px;
+            }
+        }
+    }
+    .btn-add {
+        position: absolute;
+        bottom: 0;
+        right: 15px;
+        left: 15px;
+        padding: 5px 0px 10px;
+        height: 30px;
+        &:hover {
+            background: #ebf7ff;
+            color: #57a3f3;
+        }
+    }
+    .ivu-table-expanded-cell {
+        .ivu-form {
+            z-index: 998;
+        }
+    }
+}

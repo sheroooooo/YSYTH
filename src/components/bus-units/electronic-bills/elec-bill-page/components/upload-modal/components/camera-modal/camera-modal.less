@@ -1,0 +1,146 @@
+.camera-modal {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    &-content {
+        height: 100%;
+        width: 100%;
+        .take-photos {
+            width: 65%;
+            height: calc(~"100% - 16px");
+            margin: 8px;
+            float: left;
+            position: relative;
+            &-videoStyle {
+                margin: 0;
+                padding: 0;
+                object-fit: fill;
+                width: 100%;
+                height: calc(~"90% - 53px")
+            }
+            &-btnGroup {
+                width: 100%;
+                height: 45px;
+                margin: 5px auto;
+                text-align: center;
+                .btn-item {
+                    margin-right: 5px;
+                }
+            }
+            &-set {
+                width: 100%;
+                height: 10%;
+                position: absolute; // bottom: 0px;
+                &-title {
+                    margin: 0 8px;
+                }
+            }
+        }
+        .camera-modal-photos {
+            width: calc(~"35% - 24px");
+            height: calc(~"100% - 16px");
+            float: right;
+            margin: 8px 8px 8px 0;
+            border: 1px solid #ccc;
+            .finished-photos {
+                width: 100%;
+                height: calc(~"100% - 45px");
+                overflow-y: auto;
+                position: relative;
+                .photo-item {
+                    width: 100%;
+                    border: 1px solid #ccc;
+                    &-img {
+                        display: block;
+                        cursor: pointer;
+                    }
+                    &-icon {
+                        width: 100%;
+                        height: 20px;
+                        text-align: right;
+                        margin: 0;
+                    }
+                }
+            }
+            .save-photos {
+                height: 45px;
+                width: 100%;
+                border-top: 1px solid #ccc;
+                &-btn {
+                    float: right;
+                    margin: 5px;
+                }
+                .footer-spanStyle {
+                    height: 45px;
+                    line-height: 45px;
+                    float: right;
+                    margin-right: 8px;
+                }
+                &-checked {
+                    float: left;
+                    height: 45px;
+                    line-height: 45px;
+                    margin-left: 8px;
+                }
+            }
+        }
+        .no-take-photos {
+            width: calc(~"35% - 24px");
+            height: calc(~"100% - 16px");
+            float: right;
+            margin: 8px 8px 8px 0;
+            border: 1px solid #ccc;
+            text-align: center;
+            display: table;
+            &-tips {
+                vertical-align: middle;
+                display: table-cell;
+            }
+        }
+        .preview-photo {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+            width: calc(~"100% - 32px");
+            height: calc(~"100% - 16px");
+            margin-right: 16px;
+            display: none;
+            cursor: pointer;
+            &-pre {
+                width: 10%;
+                height: 100%;
+                float: left;
+                display: table;
+                text-align: center;
+                &-icon {
+                    vertical-align: middle;
+                    display: table-cell;
+                    color: #ffffff;
+                }
+            }
+            &-body {
+                width: 80%;
+                height: 100%;
+                float: left;
+                padding: 16px 0;
+                &-imgStyle {
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &-back {
+                width: 10%;
+                height: 100%;
+                float: right;
+                display: table;
+                text-align: center;
+                &-icon {
+                    vertical-align: middle;
+                    display: table-cell;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}

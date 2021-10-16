@@ -1,0 +1,42 @@
+.base-data-choose {
+  overflow: auto;
+  height: 100%;
+  .base-data-content {
+    height: calc(~'100% - 50px');
+    overflow: auto;
+    .extra-form-area {
+      .ivu-form-item {
+        margin-bottom: 0px;
+      }
+    }
+    .filter-area{
+      border: 1px solid #d9d9d9;
+      padding: 8px;
+      margin-left: 10px;
+      height: 100%;
+      position: relative;
+      .title{
+        text-align: center;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 32px;
+          border-top: 1px solid #d9d9d9;
+        }
+      }
+      .form-add {
+        padding: 8px;
+        .ivu-radio-group-item {
+          margin-left: 16px;
+          width: 120px;
+        }
+      }
+    }
+  }
+  .footer-btn-group {
+    padding: 10px 0px 0px 10px;
+    text-align: right
+  }
+}

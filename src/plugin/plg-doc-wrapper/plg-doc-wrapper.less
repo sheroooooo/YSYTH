@@ -1,0 +1,59 @@
+.plg-doc-wrapper {
+    height: 100%;
+    overflow-y: hidden;
+    margin: 0px 8px 0;
+    background: #fff;
+    font-size: 14px;
+    box-shadow: 5px -3px 5px -5px rgba(0, 0, 0, .3), -5px -3px 5px -5px rgba(0, 0, 0, .3);
+    border-left: 1px solid rgba(0, 0, 0, .2);
+    border-right: 1px solid rgba(0, 0, 0, .2);
+    &-footer,
+    &-header {
+        position: relative;
+        margin: 0 8px;
+        padding: 0;
+        height: 46px;
+        line-height: 46px;
+        /* overflow-y: hidden; */
+        background: #fff;
+        &-suf {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+    }
+    &-header {
+        border-bottom: 1px #d9d9d9 solid;
+        &-noborder {
+            border-bottom: none !important;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            height: 30px;
+            width: 3px;
+            left: 0px;
+            top: 8px;
+            background: #2d8cf0;
+        }
+    }
+    &-footer {
+        border-top: 1px #d9d9d9 solid;
+    }
+    &-content-wrapper {
+        overflow-y: auto;
+    }
+    &-content {
+        padding-top: 8px;
+        margin: 0px 8px 0px;
+    }
+    .ivu-layout-content {
+        background: #fff;
+    }
+    &.full {
+        .plg-doc-wrapper-content {
+            padding-top: 0px;
+            margin: 0px 0px 0px;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+.label-item {
+    display: -webkit-flex;
+    display: flex;
+    cursor: default;
+    span {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 14px;
+        color: #515a6e;
+        line-height: 16px;
+        padding: 10px 12px 10px 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    &-label {
+        text-align: right;
+        &:after {
+            content: '：';
+            position: absolute;
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            font-size: 14px;
+            margin-top: -1px;
+        }
+    }
+    &-text {
+        padding-left: 5px;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+        position: relative;
+        .label-item-text-inner {
+            display: inline-block;
+            width: 85%;
+            height: 17px;
+            overflow: hidden;
+            text-overflow: ellipsis; // white-space: nowrap;
+        }
+    }
+    .ivu-tooltip {
+        width: 70%;
+        .ivu-tooltip-rel {
+            width: 100%
+        }
+        i {
+            position: relative;
+            bottom: 5px;
+            font-size: 15px !important
+        }
+    }
+}

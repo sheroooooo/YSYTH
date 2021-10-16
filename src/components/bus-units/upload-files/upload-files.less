@@ -1,0 +1,88 @@
+.upload-files{
+   ul li{
+    list-style: none;
+  }
+  .file-cell{
+    height:35px;line-height: 35px;border-top:1px solid #eee;padding:0px 8px;
+  }
+  .file-show{
+    width:100%;overflow:hidden;
+  }
+  .file-border{
+    border:1px solid #dcdee2;margin-bottom:15px;
+  }
+
+  .file-require:before{
+    content: '*';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    font-size: 22px;
+    color: red;
+    line-height: 35px;
+    text-align: center;
+  }
+  .file-btn{
+    width:100%;display:block;line-height: 35px;cursor: pointer;
+    font-size: 20px;position:relative;
+  }
+  .upload-list{
+    li {
+      height:35px;line-height: 35px;border-top:1px solid #dcdee2;
+    }
+    span.fileInfo{
+      display:block;float:left;padding-left:35px;
+    }
+    span.name{
+      width:30%;height:35px;line-height: 35px;overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
+    span.editorName{
+      width:30%;height:35px;line-height: 35px;overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
+    span.actions{
+      float:right;width:10%;height:35px;line-height: 35px;
+    }
+  }
+  .file-active{
+    background:#e6f7ff;
+  }
+  .ivu-input-icon-normal + .ivu-input{
+    border:none;background:none;
+  }
+  .oldfile{
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
+    margin-bottom: 10px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+  }
+  .ivu-upload-select{
+    position: absolute;
+    left: 50%;
+    top: 0;
+  }
+  /* 附件上部分 */
+  .files-top{
+    position:relative;height:35px;
+  }
+  .file-name{
+    width:50%;display:block;line-height: 35px;font-size: 16px;height: 35px;position:absolute;left:0;top:0;
+  }
+  .upload{
+    width:100%;
+  }
+
+  .isEditName{
+    input{
+      color:blue;
+    }
+    .ivu-input-icon{
+      color:blue
+    }
+  }
+  .ivu-input{border:none;}
+}
