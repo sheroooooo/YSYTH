@@ -1,14 +1,4 @@
-import Main from '@/view/main'
-// 1.基础管理
-import base from './module/base'
-// 2.内容管理
-import content from './module/content'
-// 3.授权管理
-import auth from './module/auth'
-// 4.用户管理
-import users from './module/users'
-// 5.统计查询
-import statistic from './module/statistic'
+import Manage from '@/view/manage'
 /**
  * iview-admin中meta除了原生参数外可配置的参数:
  * meta: {
@@ -37,45 +27,31 @@ export default [
   },
   {
     path: '/home',
-    name: '_home',
-    // redirect: '/home',
-    component: Main,
+    name: 'home',
+    component: Manage,
     meta: {
       hideInMenu: true,
       notCache: true
     },
     children: [
       {
-        path: '/home',
-        name: 'home',
+        path: "/platform",
+        name: "platform",
         meta: {
-          hideInMenu: true,
-          title: '工作台',
-          notCache: true,
-          icon: 'md-home'
+          title: '平台登记'
         },
-        component: () => import(/* webpackChunkName: "home" */'@/view/mydesktop/mydesktop-csmp.vue')
-        // component: () => import(/* webpackChunkName: "home" */'@/view/home')
+        component: () => import ( /* webpackChunkName: "platform" */ "../view/platform.vue")
       },
       {
-        path: '/theme',
-        name: 'theme',
+        path: "/dwzt",
+        name: "dwzt",
         meta: {
-          hideInMenu: true,
-          title: '选择主题',
-          notCache: true,
-          icon: 'md-home'
+          title: '单位账套对照'
         },
-        component: () => import(/* webpackChunkName: "theme" */'@/view/theme/theme.vue')
+        component: () => import ( /* webpackChunkName: "dwzt" */ "../view/dwzt.vue")
       }
     ]
   },
-  /* 业务模块路由 */
-  ...base,
-  ...content,
-  ...auth,
-  ...users,
-  ...statistic,
   {
     path: '/401',
     name: 'error_401',
