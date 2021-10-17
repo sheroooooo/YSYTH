@@ -142,7 +142,8 @@ export default {
 	methods: {
 		handleNodeClick (val, node) {
 			this.treeObj = val
-			if (PLATNAME === "所有一体化平台") this.treeObj.GUID_PLATFORM = ''
+			if (this.treeObj.PLATNAME === "所有一体化平台") this.treeObj.GUID_PLATFORM = ''
+			this.getPlatform()
 		},
 		getPlatform () {
 			let params = {
@@ -181,6 +182,7 @@ export default {
 			}
 			editPlatform(params).then(res => {
 				if (res.status === 200) {
+					this.getPlatform()
 					this.$message({
 						type: 'success',
 						message: res.message
@@ -206,6 +208,7 @@ export default {
 					}
 					deletePlatform(params).then(res => {
 						if (res.status === 200) {
+							this.getPlatform()
 							this.$message({
 								type: 'success',
 								message: '删除成功!'
