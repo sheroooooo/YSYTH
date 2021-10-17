@@ -6,10 +6,9 @@
     </div>
 </template>
 <style lang="less">
-	@import '../style/mixin';
+	@import '../style/mixin.less';
 	.header_container{
-		background-color: #EFF2F7;
-		height: 60px;
+		height: 36px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

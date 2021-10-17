@@ -17,8 +17,8 @@ body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, l
 ::-webkit-scrollbar  
 {  
     width: 0px;  
-    height: 0px;  
-    background-color: #F5F5F5;  
+    height: 10px;  
+    background-color: #fff;  
 }  
   
 /*定义滚动条轨道 内阴影+圆角*/  
@@ -34,7 +34,7 @@ body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, l
 {  
     border-radius: 10px;  
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
-    background-color: #555;  
+    background-color: #b4bccc;  
 }  
 
 input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
@@ -52,6 +52,7 @@ html,body{
 .fillcontain{
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 .clear:after{
     content: '';
@@ -114,4 +115,51 @@ html,body{
 }
 .el-submenu .el-menu-item {
     min-width: 180px !important;
+}
+.sidemenu {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    bottom: 0;
+    overflow-y: scroll;
+}
+.content-box {
+    position: absolute;
+    right: 0;
+    top: 70px;
+    bottom: 0;
+    padding-bottom: 30px;
+    -webkit-transition: left .3s ease-in-out;
+    transition: left .3s ease-in-out;
+}
+.content-box>div {
+    height: 100%;
+}
+.content {
+    background: #f0f0f0;
+    width: auto;
+    height: 96%;
+    padding: 10px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+.container {
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    height: 90%;
+}
+.left-tree {
+    height: 100%;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    background: #fff;
+    padding-top: 10px;
+}
+.right-table>.el-table {
+    margin-left: 10px;
 }
