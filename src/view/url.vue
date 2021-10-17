@@ -3,10 +3,12 @@
         <head-top></head-top>
         <div class="content">
 			<el-row class='container'>
-				<el-col :span='6' class="left-tree">
-					<el-tree :data="data" node-key='PLATNAME' :props="defaultProps" default-expand-all @node-click="handleNodeClick"></el-tree>
-				</el-col>
-				<el-col :span='18' class="right-table">
+				<el-col :span='24' class="right-table">
+					<div class="handle-box">
+						平台名称 :&nbsp;&nbsp;&nbsp;<el-input v-model="query.GUID_PLATFORM" class="handle-input mr10"></el-input>
+						功能名称 :&nbsp;&nbsp;&nbsp;<el-input v-model="query.GUID_FUNC" class="handle-input mr10"></el-input>
+						<el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
+					</div>
 					<el-table
 						:data="tableData"
 						border
@@ -14,25 +16,42 @@
 						:height='tableHeight'>
 						<el-table-column
 							prop="GUID_PLATFORM"
-							label="平台标识"
-							width="180"
-							align='center'>
-						</el-table-column>
-						<el-table-column
-							prop="PLATNAME"
 							label="平台名称"
 							width="180"
-							align='center'>
+							align='center'
+                            :show-overflow-tooltip="true">
 						</el-table-column>
-						<el-table-column
-							prop="ISENABLED"
-							label="是否启用"
+                        <el-table-column
+							prop="GUID_FUNC"
+							label="功能名称"
 							width="180"
-							align='center'>
+							align='center'
+                            :show-overflow-tooltip="true">
+						</el-table-column>
+                        <el-table-column
+							prop="XH"
+							label="序号"
+							width="180"
+							align='center'
+                            :show-overflow-tooltip="true">
 						</el-table-column>
 						<el-table-column
-							prop="BZ"
-							label="备注"
+							prop="REQTYPE"
+							label="请求方式"
+							width="180"
+							align='center'
+                            :show-overflow-tooltip="true">
+						</el-table-column>
+                        <el-table-column
+							prop="INTFURL"
+							label="路由地址"
+							width="180"
+							align='center'
+                            :show-overflow-tooltip="true">
+						</el-table-column>
+						<el-table-column
+							prop="DATATYPE"
+							label="报文格式"
 							width="180"
 							align='center'>
 						</el-table-column>
@@ -72,17 +91,40 @@
 			width="400px"
 			append-to-body>
 			<el-form :model='formItem' ref='formItem' label-position="right" label-width="100px">
-				<el-form-item prop='GUID_PLATFORM' label="平台标识">
-					<el-input v-model='formItem.GUID_PLATFORM' :disabled="true"></el-input>
+				<el-form-item prop='GUID_URL' label="路由唯一码">
+					<el-input v-model='formItem.GUID_URL' :disabled="true"></el-input>
 				</el-form-item>
-				<el-form-item prop='PLATNAME' label="平台名称">
-					<el-input v-model='formItem.PLATNAME'></el-input>
+                <el-form-item prop='GUID_PLATFORM' label="平台唯一码">
+					<el-input v-model='formItem.GUID_PLATFORM'></el-input>
 				</el-form-item>
-				<el-form-item prop='BZ' label="备注">
-					<el-input type='textarea' v-model='formItem.BZ' rows='4'></el-input>
+				<el-form-item prop='GUID_FUNC' label="功能唯一码">
+					<el-input v-model='formItem.GUID_FUNC'></el-input>
 				</el-form-item>
-				<el-form-item prop='ISENABLED' label="是否启用">
-					<el-checkbox v-model="formItem.ISENABLED" true-label='1' false-label='0'></el-checkbox>
+                <el-form-item prop='XH' label="序号">
+					<el-input v-model='formItem.XH'></el-input>
+				</el-form-item>
+				<el-form-item prop='INTFURL' label="接口地址">
+					<el-input v-model='formItem.INTFURL'></el-input>
+				</el-form-item>
+				<el-form-item prop='REQTYPE' label="请求方式">
+					<el-select v-model="formItem.REQTYPE" placeholder="请选择请求方式">
+						<el-option
+							v-for="item in options"
+							:key="item.value"
+							:label="item.label"
+							:value="item.value">
+						</el-option>
+					</el-select>
+				</el-form-item>
+				<el-form-item prop='DATATYPE' label="报文格式">
+					<el-select v-model="formItem.DATATYPE" placeholder="请选择报文格式">
+						<el-option
+							v-for="item in options1"
+							:key="item.value"
+							:label="item.label"
+							:value="item.value">
+						</el-option>
+					</el-select>
 				</el-form-item>
 			</el-form>
 			<span slot="footer" class="dialog-footer">
@@ -96,59 +138,66 @@
 <script>
 import clonedeep from 'clonedeep'
 import headTop from '../components/headTop'
-import { getPlatform, editPlatform, deletePlatform } from '@/api/request/request'
+import { getUrl, editUrl, deleteUrl } from '@/api/request/request'
 
 export default {
 	data(){
 		return {
 			tableHeight: 100,
-			defaultProps: {
-				label: 'PLATNAME'
-			},
-			treeObj: {
-				GUID_PLATFORM: ''
-			},
-			data: [
-				{
-					PLATNAME: '所有一体化平台',
-					children: [
-						{PLATNAME: '湖南预算一体化平台'},
-						{PLATNAME: '江西预算一体化平台'},
-					]
-				}
+			options: [
+				{ label: 'POST', value: 'POST' },
+				{ label: 'GET', value: 'GET' }
 			],
+			options1: [
+				{ label: 'JSON', value: 'JSON' },
+				{ label: 'XML', value: 'XML' }
+			],
+			query: {
+				GUID_PLATFORM: '',
+                GUID_FUNC: ''
+			},
 			tableData: [
-				{GUID_PLATFORM: '1111111', PLATNAME: '湖南预算一体化平台',BZ: '45555', ISENABLED: '1'},
+				{
+					GUID_URL:'路由唯一码，字符串' ,GUID_PLATFORM:'平台唯一码，字符串' ,
+					GUID_FUNC: '功能唯一码，字符串',
+					XH:'显示序号',
+					REQTYPE: '请求方式',
+					INTFURL: '接口URL地址',
+					DATATYPE: '报文格式，JSON \ XML'
+				},
 			],
 			dialogVisible: false,
 			title: '新增',
 			formItem: {
-				GUID_PLATFORM: '',
-				PLATNAME: '',
-				BZ: '',
-				ISENABLED: '1'
+				GUID_URL: '',
+                GUID_PLATFORM: '',
+                GUID_FUNC: '',
+				XH: '',
+				REQTYPE: '', // 请求方式，必传，POST \ GET
+				INTFURL: '', // 接口URL地址，必传
+				DATATYPE: '' // 报文格式，必传，JSON \ XML
 			}
 		}
 	},
-	components: {
-		headTop
-	},
+	components: { headTop },
 	mounted () {
 		this.$nextTick(() => {
-			this.tableHeight = window.innerHeight - 166
+			this.tableHeight = window.innerHeight - 250
 		})
-		this.getPlatform()
+		this.getUrl()
 	},
 	methods: {
-		handleNodeClick (val, node) {
-			this.treeObj = val
-			if (PLATNAME === "所有一体化平台") this.treeObj.GUID_PLATFORM = ''
+		handleSearch () {
+			this.getUrl()
 		},
-		getPlatform () {
+		getUrl () {
 			let params = {
-				CONDITION: { GUID_PLATFORM: this.treeObj.GUID_PLATFORM }
+				CONDITION: { 
+                    GUID_URL: '',
+					...this.query
+                }
 			}
-			getPlatform(params).then(res => {
+			getUrl(params).then(res => {
 				if (res.status === 200) {
 					this.tableData = res.data
 					this.data[0].children = res.data
@@ -162,10 +211,13 @@ export default {
 		},
 		addRow () {
 			this.formItem = {
-				GUID_PLATFORM: '',
-				PLATNAME: '',
-				BZ: '',
-				ISENABLED: '1'
+				GUID_URL: '',
+                GUID_PLATFORM: '',
+                GUID_FUNC: '',
+				XH: '',
+				REQTYPE: '', // 请求方式，必传，POST \ GET
+				INTFURL: '', // 接口URL地址，必传
+				DATATYPE: '' // 报文格式，必传，JSON \ XML
 			}
 			this.dialogVisible = true
 		},
@@ -176,11 +228,14 @@ export default {
 		},
 		handleOk () {
 			this.dialogVisible = false
+            let data = clonedeep(this.formItem)
+            data.XH = Number(data.XH)
 			let params = {
-				DATA: clonedeep(this.formItem)
+				DATA: data
 			}
-			editPlatform(params).then(res => {
+			editUrl(params).then(res => {
 				if (res.status === 200) {
+                    this.getUrl()
 					this.$message({
 						type: 'success',
 						message: res.message
@@ -201,11 +256,12 @@ export default {
 				}).then(() => {
 					let params = {
 						CONDITION: {
-							GUID_PLATFORM: data[index].GUID_PLATFORM
+							GUID_URL: data[index].GUID_URL
 						}
 					}
-					deletePlatform(params).then(res => {
+					deleteUrl(params).then(res => {
 						if (res.status === 200) {
+                            this.getUrl()
 							this.$message({
 								type: 'success',
 								message: '删除成功!'

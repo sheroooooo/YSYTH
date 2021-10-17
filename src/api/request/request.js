@@ -43,3 +43,25 @@ export const deleteFunctions = (data) => {
     method: 'post'
   })
 }
+// 访问路由
+export const getUrl = (data) => {
+  return axios.request({
+    url: '/dep/Url/getUrl',
+    data: data,
+    method: 'post'
+  })
+}
+export const editUrl = (data) => {
+  return axios.request({
+    url: '/dep/Url/editUrl',
+    data: data,
+    method: 'post'
+  })
+}
+export const deleteUrl = (data) => {
+  return axios.request({
+    url: '/dep/Url/deleteUrl',
+    data: data,
+    method: 'post'
+  })
+}
