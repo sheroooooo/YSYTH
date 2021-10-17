@@ -99,6 +99,7 @@ export default {
             userName: this.loginForm.username,
             password: this.loginForm.password
           })
+          console.log(res)
           if (res.status === 200) {
             this.$message({
               type: 'success',
@@ -109,7 +110,7 @@ export default {
           } else {
             this.$message({
               type: 'error',
-              message: res.message
+              message: res.msg
             })
           }
         }

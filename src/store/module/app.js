@@ -7,8 +7,7 @@ import {
   routeEqual,
   getRouteTitleHandled
 } from '@/libs/util'
-import { getModal, getModalMenu, setEnvironment, getExternalEnv, getBillGroupEnv, getProductInfo } from '@/api/app'
-import { getParameter } from '@/api/sa/sa-set-parameter'
+// import { getModal, getModalMenu, setEnvironment, getExternalEnv, getBillGroupEnv, getProductInfo } from '@/api/app'
 import router from '@/router'
 import config from '@/config'
 import tools from '@/libs/toolutil'

@@ -1,5 +1,4 @@
-// import Cookies from 'js-cookie'
-import { outPut } from '@/api/pub/import-export-excel'
+
 export default {
   /**
    * 本地永久存储
