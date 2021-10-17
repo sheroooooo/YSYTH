@@ -7,14 +7,14 @@
 				</div>
 				<div class="logo">预算一体化平台</div>
 			</el-col>
-	  		<el-col class="sidemenu" :span="3"  style="min-height: 100%; background-color: #324057;">
+	  		<el-col class="sidemenu" :span="4"  style="min-height: 100%; background-color: #324057;">
 				<el-menu style="min-height: 100%;" background-color='#324157' text-color="#fff" :default-active="$route.path" router>
                     <el-menu-item v-for="menu in menus" :index="menu.route" :key="menu.route">
                         <i class="el-icon-menu"></i>{{menu.name}}
                     </el-menu-item>
 				</el-menu>
 			</el-col>
-			<el-col :span="21" style="height: 100%;overflow: auto;" class='content-box'>
+			<el-col :span="20" style="height: 100%;overflow: auto;" class='content-box'>
 				<keep-alive>
 				  <router-view></router-view>
 				</keep-alive>
@@ -31,7 +31,8 @@
                     { route: '/platform', name: '平台登记' },
                     { route: '/dwzt', name: '单位账套对照' },
                     { route: '/functions', name: '功能列表' },
-                    { route: '/url', name: '访问路由' }
+                    { route: '/url', name: '访问路由' },
+                    { route: '/funcTableRelation', name: '功能与临时表对应关系' },
                 ]
             }
         },

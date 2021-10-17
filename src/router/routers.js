@@ -49,6 +49,14 @@ export default [
           title: '访问路由'
         },
         component: () => import ( /* webpackChunkName: "url" */ "../view/url.vue")
+      },
+      {
+        path: "/funcTableRelation",
+        name: "funcTableRelation",
+        meta: {
+          title: '功能与临时表对应关系'
+        },
+        component: () => import ( /* webpackChunkName: "funcTableRelation" */ "../view/funcTableRelation.vue")
       }
     ]
   },
