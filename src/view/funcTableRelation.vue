@@ -3,38 +3,33 @@
         <head-top></head-top>
         <div class="content">
 			<el-row class='container'>
-				<el-col :span='6' class="left-tree">
-					<el-tree :data="data" node-key='PLATNAME' :props="defaultProps" default-expand-all @node-click="handleNodeClick"></el-tree>
-				</el-col>
-				<el-col :span='18' class="right-table">
+				<el-col :span='24' class="right-table">
+					<div class="handle-box">
+						功能名称 :&nbsp;&nbsp;&nbsp;<el-input v-model="query.GUID_FUNC" class="handle-input mr10"></el-input>
+						<el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
+					</div>
 					<el-table
 						:data="tableData"
 						border
 						style="width: 100%"
 						:height='tableHeight'>
 						<el-table-column
-							prop="GUID_PLATFORM"
-							label="平台标识"
-							width="180"
-							align='center'>
+							prop="XH"
+							label="序号"
+							align='center'
+                            :show-overflow-tooltip="true">
+						</el-table-column>
+                        <el-table-column
+							prop="GUID_FUNC"
+							label="功能名称"
+							align='center'
+                            :show-overflow-tooltip="true">
 						</el-table-column>
 						<el-table-column
-							prop="PLATNAME"
-							label="平台名称"
-							width="180"
-							align='center'>
-						</el-table-column>
-						<el-table-column
-							prop="ISENABLED"
-							label="是否启用"
-							width="180"
-							align='center'>
-						</el-table-column>
-						<el-table-column
-							prop="BZ"
-							label="备注"
-							width="180"
-							align='center'>
+							prop="TABLENAME"
+							label="临时表表名"
+							align='center'
+                            :show-overflow-tooltip="true">
 						</el-table-column>
 						<el-table-column
 							fixed="right"
@@ -72,18 +67,16 @@
 			width="400px"
 			append-to-body>
 			<el-form :model='formItem' ref='formItem' label-position="right" label-width="100px">
-				<el-form-item prop='GUID_PLATFORM' label="平台标识">
-					<el-input v-model='formItem.GUID_PLATFORM' :disabled="true"></el-input>
+                <el-form-item prop='XH' label="序号">
+					<el-input v-model='formItem.XH'></el-input>
 				</el-form-item>
-				<el-form-item prop='PLATNAME' label="平台名称">
-					<el-input v-model='formItem.PLATNAME'></el-input>
+				<el-form-item prop='GUID_FUNC' label="功能名称">
+					<el-input v-model='formItem.GUID_FUNC'></el-input>
 				</el-form-item>
-				<el-form-item prop='BZ' label="备注">
-					<el-input type='textarea' v-model='formItem.BZ' rows='4'></el-input>
+				<el-form-item prop='TABLENAME' label="临时表表名">
+					<el-input v-model='formItem.TABLENAME'></el-input>
 				</el-form-item>
-				<el-form-item prop='ISENABLED' label="是否启用">
-					<el-checkbox v-model="formItem.ISENABLED" true-label='1' false-label='0'></el-checkbox>
-				</el-form-item>
+				
 			</el-form>
 			<span slot="footer" class="dialog-footer">
 				<el-button @click="dialogVisible = false">取 消</el-button>
@@ -96,59 +89,50 @@
 <script>
 import clonedeep from 'clonedeep'
 import headTop from '../components/headTop'
-import { getPlatform, editPlatform, deletePlatform } from '@/api/request/request'
+import { getFuncTableRelation, editFuncTableRelation, deleteFuncTableRelation } from '@/api/request/request'
 
 export default {
 	data(){
 		return {
 			tableHeight: 100,
-			defaultProps: {
-				label: 'PLATNAME'
-			},
-			treeObj: {
-				GUID_PLATFORM: ''
-			},
-			data: [
-				{
-					PLATNAME: '所有一体化平台',
-					children: [
-						{PLATNAME: '湖南预算一体化平台'},
-						{PLATNAME: '江西预算一体化平台'},
-					]
-				}
-			],
+			query: { GUID_FUNC: '' },
 			tableData: [
-				{GUID_PLATFORM: '1111111', PLATNAME: '湖南预算一体化平台',BZ: '45555', ISENABLED: '1'},
+				{
+					GUID_FUNC: '功能唯一码，字符串',
+					XH:'1',
+					GUID_FUNC_TABLE: '22333',
+					TABLENAME:'临时表表名'
+				},
 			],
 			dialogVisible: false,
 			title: '新增',
 			formItem: {
-				GUID_PLATFORM: '',
-				PLATNAME: '',
-				BZ: '',
-				ISENABLED: '1'
+                GUID_FUNC_TABLE: '',
+                GUID_FUNC: '',
+				XH: '',
+				TABLENAME: ''
 			}
 		}
 	},
-	components: {
-		headTop
-	},
+	components: { headTop },
 	mounted () {
 		this.$nextTick(() => {
-			this.tableHeight = window.innerHeight - 166
+			this.tableHeight = window.innerHeight - 250
 		})
-		this.getPlatform()
+		this.getFuncTableRelation()
 	},
 	methods: {
-		handleNodeClick (val, node) {
-			this.treeObj = val
-			if (PLATNAME === "所有一体化平台") this.treeObj.GUID_PLATFORM = ''
+		handleSearch () {
+			this.getFuncTableRelation()
 		},
-		getPlatform () {
+		getFuncTableRelation () {
 			let params = {
-				CONDITION: { GUID_PLATFORM: this.treeObj.GUID_PLATFORM }
+				CONDITION: { 
+                    GUID_FUNC_TABLE: '',
+					...this.query
+                }
 			}
-			getPlatform(params).then(res => {
+			getFuncTableRelation(params).then(res => {
 				if (res.status === 200) {
 					this.tableData = res.data
 					this.data[0].children = res.data
@@ -161,11 +145,12 @@ export default {
 			})
 		},
 		addRow () {
+			this.title = '新增'
 			this.formItem = {
-				GUID_PLATFORM: '',
-				PLATNAME: '',
-				BZ: '',
-				ISENABLED: '1'
+				GUID_FUNC_TABLE: '',
+                GUID_FUNC: '',
+				XH: '',
+				TABLENAME: ''
 			}
 			this.dialogVisible = true
 		},
@@ -176,11 +161,14 @@ export default {
 		},
 		handleOk () {
 			this.dialogVisible = false
+            let data = clonedeep(this.formItem)
+            data.XH = Number(data.XH)
 			let params = {
-				DATA: clonedeep(this.formItem)
+				DATA: data
 			}
-			editPlatform(params).then(res => {
+			editFuncTableRelation(params).then(res => {
 				if (res.status === 200) {
+                    this.getFuncTableRelation()
 					this.$message({
 						type: 'success',
 						message: res.message
@@ -201,11 +189,12 @@ export default {
 				}).then(() => {
 					let params = {
 						CONDITION: {
-							GUID_PLATFORM: data[index].GUID_PLATFORM
+							GUID_FUNC_TABLE: data[index].GUID_FUNC_TABLE
 						}
 					}
-					deletePlatform(params).then(res => {
+					deleteFuncTableRelation(params).then(res => {
 						if (res.status === 200) {
+                            this.getFuncTableRelation()
 							this.$message({
 								type: 'success',
 								message: '删除成功!'

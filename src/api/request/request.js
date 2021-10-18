@@ -65,3 +65,25 @@ export const deleteUrl = (data) => {
     method: 'post'
   })
 }
+// 功能与临时表对应关系
+export const getFuncTableRelation = (data) => {
+  return axios.request({
+    url: '/dep/FuncTableRelation/getFuncTableRelation',
+    data: data,
+    method: 'post'
+  })
+}
+export const editFuncTableRelation = (data) => {
+  return axios.request({
+    url: '/dep/FuncTableRelation/editFuncTableRelation',
+    data: data,
+    method: 'post'
+  })
+}
+export const deleteFuncTableRelation = (data) => {
+  return axios.request({
+    url: '/dep/FuncTableRelation/deleteFuncTableRelation',
+    data: data,
+    method: 'post'
+  })
+}

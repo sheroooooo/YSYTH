@@ -56,10 +56,10 @@ export default {
       loginForm: {
         username: '18832126308',
         password: '1',
-		date: '',
-		code: ''
+        date: (new Date()).Format('yyyy-MM-dd'),
+        code: ''
       },
-	  checkCode: 'ABCD',
+	  checkCode: '',
       rules: {
         username: [
           { required: true, message: '请输入用户名', trigger: 'blur' }
@@ -95,11 +95,14 @@ export default {
     async submitForm (formName) {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
+          if (this.checkCode.toLowerCase() !== this.loginForm.code.toLowerCase()) return this.$message({
+            message: '验证码不正确，请重新输入！',
+            type: 'warning'
+          })
           const res = await login({
             userName: this.loginForm.username,
             password: this.loginForm.password
           })
-          console.log(res)
           if (res.status === 200) {
             this.$message({
               type: 'success',
