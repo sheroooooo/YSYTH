@@ -73,6 +73,14 @@ export default [
           title: '参数设置'
         },
         component: () => import ( /* webpackChunkName: "cssz" */ "../view/cssz.vue")
+      },
+      {
+        path: "/pwdType",
+        name: "pwdType",
+        meta: {
+          title: '加密方式'
+        },
+        component: () => import ( /* webpackChunkName: "pwdType" */ "../view/pwdType.vue")
       }
     ]
   },

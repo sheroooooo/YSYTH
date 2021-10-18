@@ -131,3 +131,25 @@ export const deleteDefault = (data) => {
     method: 'post'
   })
 }
+// 加密方式
+export const getPwdType = (data) => {
+  return axios.request({
+    url: '/dep/PwdType/getPwdType',
+    data: data,
+    method: 'post'
+  })
+}
+export const editPwdType = (data) => {
+  return axios.request({
+    url: '/dep/PwdType/editPwdType',
+    data: data,
+    method: 'post'
+  })
+}
+export const deletePwdType = (data) => {
+  return axios.request({
+    url: '/dep/PwdType/deletePwdType',
+    data: data,
+    method: 'post'
+  })
+}
