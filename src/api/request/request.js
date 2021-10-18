@@ -87,3 +87,25 @@ export const deleteFuncTableRelation = (data) => {
     method: 'post'
   })
 }
+// 参数设置
+export const getParams = (data) => {
+  return axios.request({
+    url: '/dep/Params/getParams',
+    data: data,
+    method: 'post'
+  })
+}
+export const editParams = (data) => {
+  return axios.request({
+    url: '/dep/Params/editParams',
+    data: data,
+    method: 'post'
+  })
+}
+export const deleteParams = (data) => {
+  return axios.request({
+    url: '/dep/Params/deleteParams',
+    data: data,
+    method: 'post'
+  })
+}

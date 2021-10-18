@@ -57,6 +57,14 @@ export default [
           title: '功能与临时表对应关系'
         },
         component: () => import ( /* webpackChunkName: "funcTableRelation" */ "../view/funcTableRelation.vue")
+      },
+      {
+        path: "/cssz",
+        name: "cssz",
+        meta: {
+          title: '参数设置'
+        },
+        component: () => import ( /* webpackChunkName: "cssz" */ "../view/cssz.vue")
       }
     ]
   },

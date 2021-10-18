@@ -33,6 +33,7 @@
                     { route: '/functions', name: '功能列表' },
                     { route: '/url', name: '访问路由' },
                     { route: '/funcTableRelation', name: '功能与临时表对应关系' },
+                    { route: '/cssz', name: '参数设置' },
                 ]
             }
         },
