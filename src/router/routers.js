@@ -59,6 +59,14 @@ export default [
         component: () => import ( /* webpackChunkName: "funcTableRelation" */ "../view/funcTableRelation.vue")
       },
       {
+        path: "/default",
+        name: "default",
+        meta: {
+          title: '数据映射默认值'
+        },
+        component: () => import ( /* webpackChunkName: "default" */ "../view/default.vue")
+      },
+      {
         path: "/cssz",
         name: "cssz",
         meta: {

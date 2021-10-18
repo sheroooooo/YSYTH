@@ -109,3 +109,25 @@ export const deleteParams = (data) => {
     method: 'post'
   })
 }
+// 数据映射默认值
+export const getDefault = (data) => {
+  return axios.request({
+    url: '/dep/Default/getDefault',
+    data: data,
+    method: 'post'
+  })
+}
+export const editDefault = (data) => {
+  return axios.request({
+    url: '/dep/Default/editDefault',
+    data: data,
+    method: 'post'
+  })
+}
+export const deleteDefault = (data) => {
+  return axios.request({
+    url: '/dep/Default/deleteDefault',
+    data: data,
+    method: 'post'
+  })
+}
