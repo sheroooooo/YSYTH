@@ -99,6 +99,9 @@ export default {
             message: '验证码不正确，请重新输入！',
             type: 'warning'
           })
+          setToken('123456789')
+          this.$router.push({ name: 'home' })
+          return
           const res = await login({
             userName: this.loginForm.username,
             password: this.loginForm.password

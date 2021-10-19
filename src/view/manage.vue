@@ -36,6 +36,8 @@
                     { route: '/cssz', name: '参数设置' },
                     { route: '/default', name: '数据映射默认值' },
                     { route: '/pwdType', name: '加密方式' },
+                    { route: '/upload', name: '上传' },
+                    { route: '/download', name: '下载' }
                 ]
             }
         },

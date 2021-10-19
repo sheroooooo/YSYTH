@@ -153,3 +153,20 @@ export const deletePwdType = (data) => {
     method: 'post'
   })
 }
+// 上传
+export const queryToExternal = (data) => {
+  return axios.request({
+    url: '/dep/Do/queryToExternal',
+    data: data,
+    method: 'post'
+  })
+}
+// 下载
+export const queryFromExternal = (data) => {
+  return axios.request({
+    url: '/dep/Do/queryFromExternal',
+    data,
+    method: 'post',
+    responseType: 'blob'
+  })
+}

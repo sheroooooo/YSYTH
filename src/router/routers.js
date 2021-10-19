@@ -81,6 +81,22 @@ export default [
           title: '加密方式'
         },
         component: () => import ( /* webpackChunkName: "pwdType" */ "../view/pwdType.vue")
+      },
+      {
+        path: "/upload",
+        name: "upload",
+        meta: {
+          title: '上传'
+        },
+        component: () => import ( /* webpackChunkName: "upload" */ "../view/upload.vue")
+      },
+      {
+        path: "/download",
+        name: "download",
+        meta: {
+          title: '下载'
+        },
+        component: () => import ( /* webpackChunkName: "download" */ "../view/download.vue")
       }
     ]
   },
