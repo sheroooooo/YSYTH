@@ -192,3 +192,25 @@ export const deleteFieldRelations = (data) => {
     method: 'post'
   })
 }
+// 数据映射类型
+export const getKind = (data) => {
+  return axios.request({
+    url: '/dep/Kind/getKind',
+    data: data,
+    method: 'post'
+  })
+}
+export const editKind = (data) => {
+  return axios.request({
+    url: '/dep/Kind/editKind',
+    data: data,
+    method: 'post'
+  })
+}
+export const deleteKind = (data) => {
+  return axios.request({
+    url: '/dep/Kind/deleteKind',
+    data: data,
+    method: 'post'
+  })
+}

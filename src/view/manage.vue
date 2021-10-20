@@ -39,6 +39,7 @@
                     { route: '/upload', name: '上传' },
                     { route: '/download', name: '下载' },
                     { route: '/fieldRelations', name: '字段对应关系' },
+                    { route: '/kind', name: '数据映射类型' },
                 ]
             }
         },

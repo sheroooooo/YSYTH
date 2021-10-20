@@ -105,6 +105,14 @@ export default [
           title: '字段对应关系'
         },
         component: () => import ( /* webpackChunkName: "fieldRelations" */ "../view/fieldRelations.vue")
+      },
+      {
+        path: "/kind",
+        name: "kind",
+        meta: {
+          title: '数据映射类型'
+        },
+        component: () => import ( /* webpackChunkName: "kind" */ "../view/kind.vue")
       }
     ]
   },
