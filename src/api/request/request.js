@@ -170,3 +170,25 @@ export const queryFromExternal = (data) => {
     responseType: 'blob'
   })
 }
+// 字段对应关系
+export const getFieldRelations = (data) => {
+  return axios.request({
+    url: '/dep/FieldRelations/getFieldRelations',
+    data: data,
+    method: 'post'
+  })
+}
+export const editFieldRelations = (data) => {
+  return axios.request({
+    url: '/dep/FieldRelations/editFieldRelations',
+    data: data,
+    method: 'post'
+  })
+}
+export const deleteFieldRelations = (data) => {
+  return axios.request({
+    url: '/dep/FieldRelations/deleteFieldRelations',
+    data: data,
+    method: 'post'
+  })
+}

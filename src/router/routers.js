@@ -97,6 +97,14 @@ export default [
           title: '下载'
         },
         component: () => import ( /* webpackChunkName: "download" */ "../view/download.vue")
+      },
+      {
+        path: "/fieldRelations",
+        name: "fieldRelations",
+        meta: {
+          title: '字段对应关系'
+        },
+        component: () => import ( /* webpackChunkName: "fieldRelations" */ "../view/fieldRelations.vue")
       }
     ]
   },

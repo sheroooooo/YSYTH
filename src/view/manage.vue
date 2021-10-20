@@ -37,7 +37,8 @@
                     { route: '/default', name: '数据映射默认值' },
                     { route: '/pwdType', name: '加密方式' },
                     { route: '/upload', name: '上传' },
-                    { route: '/download', name: '下载' }
+                    { route: '/download', name: '下载' },
+                    { route: '/fieldRelations', name: '字段对应关系' },
                 ]
             }
         },
