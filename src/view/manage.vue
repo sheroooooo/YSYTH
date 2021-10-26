@@ -34,12 +34,13 @@
                     { route: '/url', name: '访问路由' },
                     { route: '/funcTableRelation', name: '功能与临时表对应关系' },
                     { route: '/cssz', name: '参数设置' },
-                    { route: '/default', name: '数据映射默认值' },
                     { route: '/pwdType', name: '加密方式' },
                     { route: '/upload', name: '上传' },
                     { route: '/download', name: '下载' },
                     { route: '/fieldRelations', name: '字段对应关系' },
                     { route: '/kind', name: '数据映射类型' },
+					{ route: '/default', name: '数据映射默认值' },
+                    { route: '/dataRelation', name: '数据映射对应关系' },
                 ]
             }
         },

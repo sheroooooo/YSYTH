@@ -113,6 +113,14 @@ export default [
           title: '数据映射类型'
         },
         component: () => import ( /* webpackChunkName: "kind" */ "../view/kind.vue")
+      },
+      {
+        path: "/dataRelation",
+        name: "dataRelation",
+        meta: {
+          title: '数据映射对应关系'
+        },
+        component: () => import ( /* webpackChunkName: "dataRelation" */ "../view/dataRelation.vue")
       }
     ]
   },

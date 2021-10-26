@@ -214,3 +214,25 @@ export const deleteKind = (data) => {
     method: 'post'
   })
 }
+// 数据映射对应关系
+export const getDataRelation = (data) => {
+  return axios.request({
+    url: '/dep/DataRelation/getDataRelation',
+    data: data,
+    method: 'post'
+  })
+}
+export const editDataRelation = (data) => {
+  return axios.request({
+    url: '/dep/DataRelation/editDataRelation',
+    data: data,
+    method: 'post'
+  })
+}
+export const deleteDataRelation = (data) => {
+  return axios.request({
+    url: '/dep/DataRelation/deleteDataRelation',
+    data: data,
+    method: 'post'
+  })
+}
