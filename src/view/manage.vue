@@ -28,19 +28,19 @@
         data () {
             return {
                 menus: [
-                    { route: '/platform', name: '平台登记' },
+                    { route: '/platform', name: '预算一体化平台登记' },
                     { route: '/dwzt', name: '单位账套对照' },
                     { route: '/functions', name: '功能列表' },
                     { route: '/url', name: '访问路由' },
                     { route: '/funcTableRelation', name: '功能与临时表对应关系' },
-                    { route: '/cssz', name: '参数设置' },
-                    { route: '/pwdType', name: '加密方式' },
-                    { route: '/upload', name: '上传' },
-                    { route: '/download', name: '下载' },
-                    { route: '/fieldRelations', name: '字段对应关系' },
-                    { route: '/kind', name: '数据映射类型' },
+					{ route: '/kind', name: '数据映射类型' },
 					{ route: '/default', name: '数据映射默认值' },
                     { route: '/dataRelation', name: '数据映射对应关系' },
+                    { route: '/cssz', name: '参数设置' },
+                    { route: '/pwdType', name: '加密方式' },
+					{ route: '/fieldRelations', name: '字段对应关系' },
+                    { route: '/upload', name: '数据上报' },
+                    { route: '/download', name: '数据下载' }
                 ]
             }
         },
