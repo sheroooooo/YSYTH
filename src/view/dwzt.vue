@@ -12,7 +12,7 @@
 					</div>
 				</el-col>
 				<el-col :span='18' class="right-table">
-					<el-button size="medium" type="primary" class='gnButton'>新增</el-button>
+					<el-button size="medium" type="primary" class='gnButton' @click="addRow">新增</el-button>
 					<el-table
 						:data="tableData"
 						border
