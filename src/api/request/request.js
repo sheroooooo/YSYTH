@@ -236,3 +236,25 @@ export const deleteDataRelation = (data) => {
     method: 'post'
   })
 }
+// 单位账套对照
+export const getDwzts = (data) => {
+  return axios.request({
+    url: '/dep/Dwzts/getDwzts',
+    data: data,
+    method: 'post'
+  })
+}
+export const editDwzts = (data) => {
+  return axios.request({
+    url: '/dep/Dwzts/editDwzts',
+    data: data,
+    method: 'post'
+  })
+}
+export const deleteDwzts = (data) => {
+  return axios.request({
+    url: '/dep/Dwzts/deleteDwzts',
+    data: data,
+    method: 'post'
+  })
+}
